@@ -3,14 +3,14 @@ Author: Emmanuel Bourg <ebourg@apache.org>
 Forwarded: not-needed
 --- a/build.gradle
 +++ b/build.gradle
-@@ -206,18 +206,6 @@
- // backward compatibility, retrofited to Java 1.5, packaged with biz.aQute.bnd
- // and uploaded to Maven with a POM, sources and Javadoc.
+@@ -214,18 +214,6 @@
+ // checked for code coverage and backward compatibility, retrofited to Java 1.5,
+ // and packaged with generated module-info classes.
  configure(subprojects.findAll { it.provides }) {
 -  // Code coverage configuration.
--  jacoco.toolVersion = '0.8.7'
+-  jacoco.toolVersion = '0.8.8'
 -  jacocoTestReport {
--    reports { xml.enabled true }
+-    reports { xml.required = true }
 -    classDirectories.setFrom(sourceSets.main.output.classesDirs)
 -  }
 -  jacocoTestCoverageVerification {

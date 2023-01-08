@@ -3,7 +3,7 @@ Author: Emmanuel Bourg <ebourg@apache.org>
 Forwarded: not-needed
 --- a/build.gradle
 +++ b/build.gradle
-@@ -60,6 +60,10 @@
+@@ -74,6 +74,10 @@
  // Project descriptions
  // -----------------------------------------------------------------------------
  

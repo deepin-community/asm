@@ -1,3 +1,19 @@
+asm (9.4-1) unstable; urgency=medium
+
+  * New upstream release
+    - Refreshed the patches
+  * Removed the -java-doc package
+  * Standards-Version updated to 4.6.1
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 28 Nov 2022 00:20:38 +0100
+
+asm (9.3-1) unstable; urgency=medium
+
+  * New upstream release
+    - Refreshed the patches
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Mon, 02 May 2022 19:31:16 +0200
+
 asm (9.2-1) unstable; urgency=medium
 
   * New upstream release

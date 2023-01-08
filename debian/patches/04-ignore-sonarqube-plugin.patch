@@ -7,11 +7,11 @@ Forwarded: not-needed
    }
  }
  
--plugins { id 'org.sonarqube' version '3.0' apply false }
+-plugins { id 'org.sonarqube' version '3.3' apply false }
  
  description = 'ASM, a very small and fast Java bytecode manipulation framework'
  
-@@ -298,13 +297,6 @@
+@@ -304,13 +303,6 @@
        'Implementation-Version': "${version}")
    }
  

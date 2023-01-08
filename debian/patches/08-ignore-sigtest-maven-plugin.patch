@@ -3,7 +3,7 @@ Author: Emmanuel Bourg <ebourg@apache.org>
 Forwarded: not-needed
 --- a/build.gradle
 +++ b/build.gradle
-@@ -225,17 +225,6 @@
+@@ -233,17 +233,6 @@
        task "${f.name}"(dependsOn: 'classes') {
          inputs.files(f, sourceSets.main.java)
          outputs.file("${buildDir}/${f.name}")
@@ -21,7 +21,7 @@ Forwarded: not-needed
        }
        check.dependsOn f.name
      }
-@@ -243,16 +232,6 @@
+@@ -251,16 +240,6 @@
      task "buildSigtest"(dependsOn: 'classes') {
        inputs.files(sourceSets.main.java)
        outputs.file("src/test/resources/sigtest-${version}.txt")
