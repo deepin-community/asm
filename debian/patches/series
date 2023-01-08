@@ -9,3 +9,4 @@
 09-ignore-test-coverage.patch
 10-remapping-adapters.patch
 11-gradle-compatibility.patch
+12-ignore-java-platform-plugin.patch

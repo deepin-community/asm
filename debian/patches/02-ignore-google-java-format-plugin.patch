@@ -8,15 +8,15 @@ Forwarded: not-needed
  }
  
 -plugins { id 'com.github.sherter.google-java-format' version '0.9' apply false }
- plugins { id 'me.champeau.gradle.jmh' version '0.5.2' apply false }
- plugins { id 'org.sonarqube' version '3.0' apply false }
+ plugins { id 'me.champeau.jmh' version '0.6.6' apply false }
+ plugins { id 'org.sonarqube' version '3.3' apply false }
  
-@@ -172,10 +171,6 @@
+@@ -181,10 +180,6 @@
  // All projects are checked with googleJavaFormat, Checkstyle and PMD, 
  // and tested with :asm-test and JUnit.
  subprojects {
 -  apply plugin: 'com.github.sherter.google-java-format'
--  googleJavaFormat.toolVersion = '1.9'
+-  googleJavaFormat.toolVersion = '1.15.0'
 -  googleJavaFormat.exclude 'src/resources/java/**/*'
 -  
    // Check the coding style with Checkstyle. Fail in case of error or warning.

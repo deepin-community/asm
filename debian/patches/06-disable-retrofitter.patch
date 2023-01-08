@@ -3,11 +3,12 @@ Author: Emmanuel Bourg <ebourg@apache.org>
 Forwarded: not-needed
 --- a/build.gradle
 +++ b/build.gradle
-@@ -214,18 +214,6 @@
+@@ -222,21 +222,6 @@
    }
    check.dependsOn jacocoTestCoverageVerification
  
--  // Retrofit the code to Java 1.5, in-place, in compileJava.doLast.
+-  // Retrofit the code in-place to Java 1.5 and generate a module-info class
+-  // from the code content, in compileJava.doLast.
 -  if (name != 'asm-test') {
 -    compileJava.dependsOn ':tools:retrofitter:classes'
 -    compileJava.doLast {
@@ -15,7 +16,9 @@ Forwarded: not-needed
 -      def loader = new URLClassLoader(path.collect {f -> f.toURL()} as URL[])
 -      def retrofitter =
 -          loader.loadClass('org.objectweb.asm.tools.Retrofitter').newInstance()
--      retrofitter.retrofit sourceSets.main.output.classesDirs.singleFile
+-      def classes = sourceSets.main.output.classesDirs.singleFile
+-      retrofitter.retrofit(classes, "${version}")
+-      retrofitter.verify(classes, "${version}", provides, transitiveRequires())
 -    }
 -  }
 -

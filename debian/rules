@@ -14,7 +14,7 @@ override_dh_auto_build:
 	cp -R asm-tree/src/*     asm-all/src/
 	cp -R asm-util/src/*     asm-all/src/
 
-	dh_auto_build -- jar javadoc -x :asm-test:compileJava -x :asm-test:javadoc
+	dh_auto_build -- jar -x :asm-test:compileJava
 
 override_mh_install:
 	mh_install -e$(DEB_VERSION_UPSTREAM)

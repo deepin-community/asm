@@ -1,0 +1,20 @@
+Description: Ignore the Java Platform plugin (Gradle update required)
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: not-needed
+--- a/build.gradle
++++ b/build.gradle
+@@ -38,14 +38,6 @@
+ 
+ description = 'ASM, a very small and fast Java bytecode manipulation framework'
+ 
+-apply plugin: 'java-platform'
+-dependencies {
+-  constraints {
+-    api project(':asm'), project(':asm-tree'), project(':asm-analysis')
+-    api project(':asm-util'), project(':asm-commons')
+-  }
+-}
+-
+ allprojects {
+   group = 'org.ow2.asm'
+   version = '9.4' + (rootProject.hasProperty('release') ? '' : '-SNAPSHOT')

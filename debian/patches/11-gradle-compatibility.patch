@@ -3,7 +3,7 @@ Author: Emmanuel Bourg <ebourg@apache.org>
 Forwarded: not-needed
 --- a/build.gradle
 +++ b/build.gradle
-@@ -193,7 +193,7 @@
+@@ -202,7 +202,7 @@
    }
  
    // Produce byte-for-byte reproducible archives.
@@ -12,7 +12,7 @@ Forwarded: not-needed
      preserveFileTimestamps = false
      reproducibleFileOrder = true
      dirMode = 0775
-@@ -275,16 +275,13 @@
+@@ -279,10 +279,6 @@
      from sourceSets.main.allSource
      classifier 'sources'
    }
@@ -20,18 +20,19 @@ Forwarded: not-needed
 -    withJavadocJar()
 -    withSourcesJar()
 -  }
+ }
  
-   // Add a publish task, provided by the maven-publish plugin, to generate and
-   // sign the project POM and to upload it, with the signed classes, sources
-   // and Javadoc jars.
+ // Configure the root project, and those with a non-empty 'provides' property,
+@@ -290,6 +286,7 @@
+ configure([rootProject] + subprojects.findAll { it.provides }) {
    apply plugin: 'maven-publish'
    apply plugin: 'signing'
 +/*
    publishing {
      repositories {
        maven {
-@@ -375,4 +372,5 @@
-     sign publishing.publications.mavenJava
+@@ -382,4 +379,5 @@
+     sign publishing.publications.maven
    }
    tasks.withType(GenerateModuleMetadata) { enabled = false }
 +*/

@@ -7,22 +7,22 @@ Forwarded: not-needed
    }
  }
  
--plugins { id 'me.champeau.gradle.jmh' version '0.5.2' apply false }
- plugins { id 'org.sonarqube' version '3.0' apply false }
+-plugins { id 'me.champeau.jmh' version '0.6.6' apply false }
+ plugins { id 'org.sonarqube' version '3.3' apply false }
  
  description = 'ASM, a very small and fast Java bytecode manipulation framework'
-@@ -104,10 +103,8 @@
+@@ -118,10 +117,8 @@
  // Use "gradle benchmarks:jmh [-PjmhInclude='<regex>']" to run the benchmarks.
  project(':benchmarks') {
    description = "Benchmarks for ${rootProject.description}"
--  apply plugin: 'me.champeau.gradle.jmh'
+-  apply plugin: 'me.champeau.jmh'
    dependencies {
      implementation files('libs/csg-bytecode-1.0.0.jar', 'libs/jclasslib.jar')
 -    jmh project(':asm'), project(':asm-tree') 
    }
    depends = [
      'kawa:kawa:1.7',
-@@ -131,12 +128,12 @@
+@@ -145,12 +142,12 @@
      classes.dependsOn "asm${version}"
    }
    configurations.create('input-classes-java8')
@@ -34,9 +34,9 @@ Forwarded: not-needed
    classes.dependsOn copyInputClasses
 +/*
    jmh {
-     jvmArgsAppend = "-Duser.dir=${rootDir}"
+     jvmArgsAppend = ["-Duser.dir=${rootDir}"]
      resultFormat = 'CSV'
-@@ -145,6 +142,7 @@
+@@ -159,6 +156,7 @@
        include = [jmhInclude]
      }
    }
